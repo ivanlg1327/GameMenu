@@ -1,10 +1,12 @@
-package com.example.game;
+package com.example.game.activities;
 
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.game.R;
 
 public class GameMenu extends AppCompatActivity {
 

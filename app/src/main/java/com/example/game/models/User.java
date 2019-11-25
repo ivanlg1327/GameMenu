@@ -3,8 +3,6 @@ package com.example.game.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class User {
@@ -17,6 +15,8 @@ public class User {
     @SerializedName("id")
     @Expose
     private String id;
+
+    private List<Item> items;
 
     public User(){
     }
@@ -43,5 +43,9 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }

@@ -44,11 +44,10 @@
         app:layout_constraintGuide_begin="24dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logIn"
         android:layout_width="225dp"
         android:layout_height="75dp"
         android:text="LOG IN"
-
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
@@ -57,11 +56,10 @@
         app:layout_constraintTop_toBottomOf="@+id/guideH1"
         app:layout_constraintVertical_bias="0" />
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUp"
         android:layout_width="225dp"
         android:layout_height="75dp"
         android:text=" SIGN UP"
-
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"

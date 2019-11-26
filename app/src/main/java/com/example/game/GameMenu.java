@@ -22,7 +22,7 @@ public class GameMenu extends AppCompatActivity {
         final View.OnClickListener connectListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int id = v.getId();
+                final int id = v.getId();// no entiendo porque funciona en el ejemplo
               //  if (id==logIn) {
                 //}
             }

@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 
 import java.util.LinkedList;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends GameMenu {
 
     private User user;
 

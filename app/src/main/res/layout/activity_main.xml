@@ -5,7 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/background">
 
     >
 
@@ -44,7 +44,7 @@
         app:layout_constraintGuide_begin="24dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logIn"
         android:layout_width="225dp"
         android:layout_height="75dp"
         android:text="LOG IN"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/guideH1"
         app:layout_constraintVertical_bias="0" />
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUp"
         android:layout_width="225dp"
         android:layout_height="75dp"
         android:text=" SIGN UP"

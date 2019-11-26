@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.example.game.activities.GameMenu"
+        <activity android:name="com.example.game.activities.MenuActivity"
             android:screenOrientation="landscape"
 
             >
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
@@ -27,6 +28,7 @@
                    />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.game.activities.ProfileActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
-
 </manifest>

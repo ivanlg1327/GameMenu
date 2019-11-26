@@ -18,7 +18,11 @@ public class User {
 
     private List<Item> items;
 
-    public User(){
+    public User(String n, String a, String i, List<Item> its){
+        this.name = n;
+        this.surname = a;
+        this.id = i;
+        this.items = its;
     }
 
     public String getId() {

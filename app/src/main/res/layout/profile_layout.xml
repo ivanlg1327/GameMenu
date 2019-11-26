@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.32" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -39,6 +39,7 @@
         app:layout_constraintStart_toEndOf="@+id/profileicon" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerobj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

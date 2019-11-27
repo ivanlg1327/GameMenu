@@ -48,11 +48,11 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:text="LOG IN"
-
         android:textSize="20sp"
+        android:onClick="menuClick"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toEndOf="@+id/guideV1"
         app:layout_constraintTop_toBottomOf="@+id/guideH1"
         app:layout_constraintVertical_bias="1.0" />
@@ -66,37 +66,58 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
-        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toEndOf="@+id/guideV1"
         app:layout_constraintTop_toBottomOf="@+id/guideH1"
         app:layout_constraintVertical_bias="1" />
 
     <EditText
-        android:id="@+id/loginbox"
+        android:id="@+id/passwordbox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/textboxback"
 
+        android:background="@drawable/textboxback"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
-        app:layout_constraintEnd_toEndOf="@+id/signUp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideV1"
+        app:layout_constraintLeft_toRightOf="@id/guideV1"
+        app:layout_constraintRight_toLeftOf="@id/guideV2"
         app:layout_constraintTop_toBottomOf="@+id/guideH1"
         app:layout_constraintVertical_bias="0.55" />
 
     <EditText
-        android:id="@+id/signupbox"
-        android:layout_height="wrap_content"
+        android:id="@+id/usernamebox"
         android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/textboxback"
 
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
-        app:layout_constraintEnd_toEndOf="@+id/signUp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideV1"
         app:layout_constraintTop_toBottomOf="@+id/guideH1"
-        app:layout_constraintVertical_bias="0.2"
-        />
+        app:layout_constraintLeft_toRightOf="@id/guideV1"
+        app:layout_constraintRight_toLeftOf="@id/guideV2"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <TextView
+        android:id="@+id/logtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Username"
+        android:textSize="15dp"
+        android:textColor="@color/myWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/usernamebox"
+        app:layout_constraintEnd_toStartOf="@+id/usernamebox"
+        app:layout_constraintLeft_toRightOf="@id/guideV1" />
+
+    <TextView
+        android:id="@+id/passtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Password"
+        android:textSize="15dp"
+        android:textColor="@color/myWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordbox"
+        app:layout_constraintEnd_toStartOf="@+id/passwordbox"
+        app:layout_constraintLeft_toRightOf="@id/guideV1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ public interface userService {
     @GET("users/{owner}")
     Call<User> getUser(@Path("owner") String owner);
 
+
     /*
     public static userService getInstance() {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
@@ -25,5 +26,6 @@ public interface userService {
         return retrofit.create(userService.class);
     }
      */
+
 
 }

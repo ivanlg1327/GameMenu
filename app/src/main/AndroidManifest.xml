@@ -49,5 +49,10 @@
             android:screenOrientation="landscape">
 
         </activity>
+        <activity android:name="com.example.game.activities.ShopActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".activities.PopItemActivity" />
     </application>
 </manifest>

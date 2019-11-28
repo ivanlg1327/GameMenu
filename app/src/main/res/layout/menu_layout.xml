@@ -22,10 +22,11 @@
 
     <Button
         android:id="@+id/shopbut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginBottom="0dp"
-        android:text="@string/shop"
+        android:onClick="shopClick"
+        android:background="@drawable/shopimg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintEnd_toStartOf="@+id/playbut"

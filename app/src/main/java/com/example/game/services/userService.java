@@ -1,8 +1,11 @@
 package com.example.game.services;
 
+import com.example.game.models.Item;
 import com.example.game.models.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -17,6 +20,7 @@ public interface userService {
     Call<User> getUser(@Path("owner") String owner);
 
     @GET("users/{owner}/objects")
+    Call<List<Item>> getItems(@Path("owner") String owner);
 
     public static userService getInstance() {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();

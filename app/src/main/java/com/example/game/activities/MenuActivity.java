@@ -41,8 +41,16 @@ public class MenuActivity extends GameMenu {
         Gson gson = new Gson();
         String myJson = gson.toJson(this.user);
 
-        Intent intentMain = new Intent(this , ProfileActivity.class);
-        intentMain.putExtra("myjson", myJson);
-        startActivity(intentMain);
+        Intent intentprofile = new Intent(this , ProfileActivity.class);
+        intentprofile.putExtra("myjson", myJson);
+        startActivity(intentprofile);
+    }
+
+    public void shopClick(View view){
+
+        Button info = (Button)view;
+        Intent intentshop = new Intent(this , ShopActivity.class);
+        startActivity(intentshop);
+
     }
 }

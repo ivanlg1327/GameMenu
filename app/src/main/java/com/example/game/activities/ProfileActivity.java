@@ -13,7 +13,7 @@ import com.example.game.models.User;
 import com.example.game.utils.ItemAdapter;
 import com.google.gson.Gson;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends MenuActivity {
 
     private User user;
     ImageView profileimg;

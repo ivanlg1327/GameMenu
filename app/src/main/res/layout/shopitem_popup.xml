@@ -10,20 +10,20 @@
 
     <ImageView
         android:id="@+id/imgitem"
-        android:layout_width="221dp"
-        android:layout_height="215dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@mipmap/ic_launcher_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/nameitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text="NOMBRE"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:text="BUY"
         app:layout_constraintBottom_toBottomOf="@+id/descpitem"
-        app:layout_constraintEnd_toEndOf="@+id/imgitem" />
+        app:layout_constraintEnd_toEndOf="@+id/imgitem"
+        app:layout_constraintStart_toEndOf="@+id/nameitem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

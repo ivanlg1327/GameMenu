@@ -58,24 +58,28 @@ public class ShopActivity extends MenuActivity implements ItemAdapter.OnItemList
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ShopActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.shopitem_popup,null);
 
-        TextView itemName = (TextView) findViewById(R.id.nameitem);
-        TextView itemdescriptor = (TextView) findViewById(R.id.descpitem);
-        ImageView itemimg = (ImageView) findViewById(R.id.imgitem);
-        Button buybut = (Button) findViewById(R.id.buybutton);
+        TextView itemName = (TextView) mView.findViewById(R.id.nameitem);
+        TextView itemdescriptor = (TextView) mView.findViewById(R.id.descpitem);
+        ImageView itemimg = (ImageView) mView.findViewById(R.id.imgitem);
+        Button buybut = (Button) mView.findViewById(R.id.buybutton);
 
-        //itemName.setText(itempop.getName());
-        //itemdescriptor.setText(itempop.getDescription());
-        /*
+        itemName.setText(itempop.getName());
+        itemdescriptor.setText(itempop.getDescription());
+
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+
         buybut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 Log.d("TAG", "Buyed:" + itempop.getName());
+                dialog.cancel();
+
+                //mensaje de confirmacion de compra
+                //accion de compra por parte del usuario
             }
         });
-
-         */
-        mBuilder.setView(mView);
-        AlertDialog dialog = mBuilder.create();
-        dialog.show();
     }
 }

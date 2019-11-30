@@ -13,7 +13,7 @@ import com.example.game.models.User;
 import com.example.game.utils.ItemAdapter;
 import com.google.gson.Gson;
 
-public class ProfileActivity extends MenuActivity {
+public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemListener{
 
     private User user;
     ImageView profileimg;
@@ -42,11 +42,16 @@ public class ProfileActivity extends MenuActivity {
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ItemAdapter(user.getItems());
+        mAdapter = new ItemAdapter(user.getItems(),this);
         recyclerView.setAdapter(mAdapter);
 
         nameText.setText(user.getName() + " " + user.getSurname());
         dataText.setText(user.getId() + "Objects: " + String.valueOf(user.getItems().size()));
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
 
     }
 }

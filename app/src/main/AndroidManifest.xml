@@ -11,22 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
         <activity android:name="com.example.game.activities.GameMenu"
             android:screenOrientation="landscape"
              >
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
-
-
                     />
-
                 <category android:name="android.intent.category.LAUNCHER"
-                    />
+                />
             </intent-filter>
         </activity>
         <activity android:name="com.example.game.activities.MenuActivity"
@@ -46,13 +38,17 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.game.activities.ProfileActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MenuActivity">
 
         </activity>
         <activity android:name="com.example.game.activities.ShopActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MenuActivity">
 
         </activity>
-        <activity android:name=".activities.PopItemActivity" />
+        <activity android:name=".activities.PopItemActivity"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.ShopActivity"/>
     </application>
 </manifest>

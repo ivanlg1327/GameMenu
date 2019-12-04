@@ -20,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER"
                 />
             </intent-filter>
+            <intent-filter>
+                <data android:scheme="pumpkin.com" android:host="open" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
         </activity>
         <activity android:name="com.example.game.activities.MenuActivity"
             android:screenOrientation="landscape"
@@ -28,13 +34,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MenuActivity" />
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"
+                <action android:name="android.intent.action.MAIN" />
 
 
-                    />
+                <category android:name="android.intent.category.LAUNCHER" />
 
-                <category android:name="android.intent.category.LAUNCHER"
-                    />
             </intent-filter>
         </activity>
         <activity android:name="com.example.game.activities.ProfileActivity"

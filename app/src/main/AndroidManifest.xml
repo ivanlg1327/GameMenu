@@ -29,17 +29,8 @@
         </activity>
         <activity android:name="com.example.game.activities.MenuActivity"
             android:screenOrientation="landscape"
-            android:parentActivityName=".activities.GameMenu">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MenuActivity" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:parentActivityName="com.example.game.activities.GameMenu">
 
-
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
         </activity>
         <activity android:name="com.example.game.activities.ProfileActivity"
             android:screenOrientation="landscape"

@@ -1,6 +1,9 @@
 package com.example.game.models;
 
-public class Item {
+
+import java.io.Serializable;
+
+public class Item implements Serializable {
     String name;
     String description;
 
@@ -9,6 +12,7 @@ public class Item {
         this.description = d;
     }
 
+
     public String getName() {
         return name;
     }
@@ -16,4 +20,6 @@ public class Item {
     public String getDescription() {
         return description;
     }
+
+
 }

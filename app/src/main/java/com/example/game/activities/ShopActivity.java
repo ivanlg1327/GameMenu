@@ -2,6 +2,7 @@ package com.example.game.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.game.R;
 import com.example.game.models.Item;
 import com.example.game.utils.ItemAdapter;
+import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 public class ShopActivity extends MenuActivity implements ItemAdapter.OnItemListener {
@@ -28,6 +31,7 @@ public class ShopActivity extends MenuActivity implements ItemAdapter.OnItemList
 
 
     LinkedList<Item> its;
+    LinkedList<Item> itsbuyed;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,8 @@ public class ShopActivity extends MenuActivity implements ItemAdapter.OnItemList
         its.add(a);
         its.add(b);
         its.add(c);
+
+        itsbuyed = new LinkedList<Item>();
 
         mAdapter = new ItemAdapter(its,this);
         recyclerView.setAdapter(mAdapter);
@@ -76,10 +82,17 @@ public class ShopActivity extends MenuActivity implements ItemAdapter.OnItemList
             public void onClick(View view){
                 Log.d("TAG", "Buyed:" + itempop.getName());
                 dialog.cancel();
-
-                //mensaje de confirmacion de compra
-                //accion de compra por parte del usuario
+                itsbuyed.add(itempop);
             }
         });
+    }
+
+    public void closeClick(View view){
+        Button close = (Button)view;
+        Intent data = new Intent();
+        // Activity finished ok, return the item
+        data.putExtra("LIST", (Serializable) itsbuyed);
+        setResult(RESULT_OK, data);
+        finish();
     }
 }

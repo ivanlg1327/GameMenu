@@ -6,16 +6,17 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class User {
-    @SerializedName("nombre")
+    @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("apellidos")
+    @SerializedName("lastname")
     @Expose
     private String surname;
     @SerializedName("id")
     @Expose
     private String id;
-
+    @SerializedName("objects")
+    @Expose
     private List<Item> items;
 
     public User(String n, String a, String i, List<Item> its){
@@ -52,4 +53,6 @@ public class User {
     public List<Item> getItems() {
         return items;
     }
+
+    public void addItem(Item it) {items.add(it);}
 }

@@ -45,5 +45,8 @@
         <activity android:name=".activities.PopItemActivity"
             android:screenOrientation="landscape"
             android:parentActivityName=".activities.ShopActivity"/>
+        <activity android:name=".activities.SignUpActivity"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.GameMenu"/>
     </application>
 </manifest>

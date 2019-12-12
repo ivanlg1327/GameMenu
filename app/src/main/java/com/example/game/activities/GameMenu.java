@@ -42,7 +42,8 @@ public class GameMenu extends AppCompatActivity {
                         break;
 
                     case R.id.signUp:
-                        //
+
+                        singUpClick();
                         break;
 
                 }
@@ -54,6 +55,12 @@ public class GameMenu extends AppCompatActivity {
     public void menuClick()
     {
         Intent i = new Intent(this,MenuActivity.class);
+        startActivity(i);
+    }
+
+    public void singUpClick()
+    {
+        Intent i = new Intent(this, SignUpActivity.class);
         startActivity(i);
     }
 }

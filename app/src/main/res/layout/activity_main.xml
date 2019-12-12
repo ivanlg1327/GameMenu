@@ -76,8 +76,10 @@
         android:id="@+id/passwordbox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:backgroundTint="#006D4D4D"
 
+
+        android:hint="Password"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
         app:layout_constraintLeft_toRightOf="@id/guideV1"
         app:layout_constraintRight_toLeftOf="@id/guideV2"

@@ -42,11 +42,17 @@
             android:parentActivityName=".activities.MenuActivity">
 
         </activity>
+
         <activity android:name=".activities.PopItemActivity"
             android:screenOrientation="landscape"
             android:parentActivityName=".activities.ShopActivity"/>
+
         <activity android:name=".activities.SignUpActivity"
             android:screenOrientation="landscape"
             android:parentActivityName=".activities.GameMenu"/>
+
+        <activity android:name=".activities.LibraryActivity"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MenuActivity"/>
     </application>
 </manifest>

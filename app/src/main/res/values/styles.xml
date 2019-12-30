@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-
+        <item name="android:fontFamily">@font/iflash_705</item>
     </style>
-
 </resources>

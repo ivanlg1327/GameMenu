@@ -29,7 +29,4 @@ public interface userService {
 
         return retrofit.create(userService.class);
     }
-
-
-
 }

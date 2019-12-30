@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.R;
@@ -87,5 +89,11 @@ public class MenuActivity extends GameMenu {
                 }
             }
         }
+    }
+
+    public void libraryClick(View view) {
+        ImageButton lib = (ImageButton) view;
+        LibraryActivity libraryActivity = new LibraryActivity();
+        libraryActivity.show(getSupportFragmentManager(),"");
     }
 }

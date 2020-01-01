@@ -5,15 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/dialog_background">
 
     <ImageView
         android:id="@+id/imageEnemy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:maxWidth="135dp"
         android:maxHeight="300dp"
         android:minWidth="70dp"
@@ -31,6 +32,21 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         app:layout_constraintGuide_begin="10dp"/>
+
+    <ImageButton
+        android:id="@+id/nextbut"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:background="@color/transparent"
+        android:maxWidth="20dp"
+        android:maxHeight="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/imageEnemy"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

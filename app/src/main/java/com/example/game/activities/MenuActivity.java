@@ -29,6 +29,8 @@ public class MenuActivity extends GameMenu {
 
     private User user;
     private ImageView imagelogo;
+    private ImageButton profilebut;
+    private ImageButton librarybut;
     long animationduration = 3000; //ms
     static final int SHOP_ITEM_REQUEST = 1;
 
@@ -56,6 +58,30 @@ public class MenuActivity extends GameMenu {
 
         animatorSet.playTogether(animatorY_1);
         animatorSet.start();
+
+        /*
+        profilebut = findViewById(R.id.buttonprofile);
+        ObjectAnimator animatorY_2 = ObjectAnimator.ofFloat(profilebut,"y",10f);
+        animatorY_2.setDuration(250);
+        animatorY_2.setRepeatCount(Animation.INFINITE);
+        animatorY_2.setRepeatMode(ValueAnimator.REVERSE);
+        AnimatorSet animatorSet_2 = new AnimatorSet();
+
+        animatorSet_2.playTogether(animatorY_2);
+        animatorSet_2.start();
+
+
+        librarybut = findViewById(R.id.buttonLibrary);
+        ObjectAnimator animatorY_3 = ObjectAnimator.ofFloat(librarybut,"y",10f);
+        animatorY_3.setDuration(250);
+        animatorY_3.setRepeatCount(Animation.INFINITE);
+        animatorY_3.setRepeatMode(ValueAnimator.REVERSE);
+        AnimatorSet animatorSet_3 = new AnimatorSet();
+
+        animatorSet_3.playTogether(animatorY_3);
+        animatorSet_3.start();
+         */
+
 
     }
 

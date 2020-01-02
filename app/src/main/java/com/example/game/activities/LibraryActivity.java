@@ -19,6 +19,7 @@ public class LibraryActivity extends AppCompatDialogFragment {
 
     ImageView img;
     ImageButton next;
+    ImageButton back;
     public static Integer[] spritesE = {R.drawable.frame_0,R.drawable.frame_1,R.drawable.frame_2,R.drawable.frame_3,R.drawable.frame_4,R.drawable.frame_5,R.drawable.frame_6,R.drawable.frame_7, R.drawable.frame_8};
     public static Integer[] spritesT = {R.drawable.frame_000,R.drawable.frame_000,R.drawable.frame_000, R.drawable.frame_00,R.drawable.frame_01,R.drawable.frame_02,R.drawable.frame_03,R.drawable.frame_04,R.drawable.frame_05,R.drawable.frame_06,R.drawable.frame_07};
     RunnableSprites myRunnable = new RunnableSprites();
@@ -33,6 +34,7 @@ public class LibraryActivity extends AppCompatDialogFragment {
         builder.setView(view);
         img = (ImageView) view.findViewById(R.id.imageEnemy);
         next = (ImageButton)view.findViewById(R.id.nextbut);
+        back = (ImageButton) view.findViewById(R.id.backbut);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +42,19 @@ public class LibraryActivity extends AppCompatDialogFragment {
                 myRunnable.setUpdateInterval(200);
                 myRunnable.setSprites(spritesT);
                 myRunnable.run();
+                next.setVisibility(View.INVISIBLE);
+                back.setVisibility(View.VISIBLE);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRunnable.setUpdateInterval(100);
+                myRunnable.setSprites(spritesE);
+                myRunnable.run();
+                back.setVisibility(View.INVISIBLE);
+                next.setVisibility(View.VISIBLE);
             }
         });
 

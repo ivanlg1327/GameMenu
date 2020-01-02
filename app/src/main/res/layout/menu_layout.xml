@@ -41,7 +41,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/buttonimage_rounded"
         android:onClick="profileClick"
         android:src="@mipmap/ic_launcher_round"
@@ -64,17 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonprofile" />/>
-
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="75dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonprofile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonprofile"
-        android:background="@drawable/button_rounded"/>
+        app:layout_constraintTop_toBottomOf="@+id/buttonprofile" />
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -83,11 +72,59 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/playbut"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logojet" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#446668"
+        android:gravity="right"
+        android:maxHeight="50dp"
+        android:minHeight="25dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonprofile"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:maxHeight="25dp"
+            app:srcCompat="@drawable/coin" />
+
+        <TextView
+            android:id="@+id/moneytext"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:text="120"
+            android:textColor="@color/myWhite" />
+
+        <ImageButton
+            android:id="@+id/settbut"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="left"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/settings"
+            android:layout_marginHorizontal="8dp"/>
+
+        <ImageButton
+            android:id="@+id/helpbut"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/help" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ package com.example.game.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class GameMenu extends AppCompatActivity {
 
     private EditText textusername;
     private EditText textpassword;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,6 @@ public class GameMenu extends AppCompatActivity {
                 final int id = v.getId();
                 switch (id){
                     case R.id.logIn:
-                        //funcion conectar
-
                         menuClick();
                         break;
 
@@ -54,6 +54,14 @@ public class GameMenu extends AppCompatActivity {
     }
     public void menuClick()
     {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading user...");
+        progressDialog.setMessage("Waiting for response");
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.show();
+
+
         Intent i = new Intent(this,MenuActivity.class);
         startActivity(i);
     }

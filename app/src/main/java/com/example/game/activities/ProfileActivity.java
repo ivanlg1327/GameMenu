@@ -50,8 +50,8 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
         mAdapter = new ItemAdapter(user.getItems(),this);
         recyclerView.setAdapter(mAdapter);
 
-        nameText.setText(user.getName() + " " + user.getSurname());
-        dataText.setText(user.getId() + "Objects: " + String.valueOf(user.getItems().size()));
+        nameText.setText(user.getName());
+        dataText.setText(user.getEmail() + "Objects: " + String.valueOf(user.getItems().size()));
 
     }
 

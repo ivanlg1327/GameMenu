@@ -12,40 +12,26 @@
         android:id="@+id/usernamebox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/edittext_background"
-        android:hint="  Username"
+        android:hint=" Username"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
         app:layout_constraintStart_toStartOf="@+id/guideV1"
-        app:layout_constraintTop_toBottomOf="@+id/lastnamebox"
-        tools:layout_editor_absoluteX="359dp" />
+
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/namebox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edittext_background"
-        android:hint="  Name"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideV2"
-        app:layout_constraintStart_toStartOf="@+id/guideV1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <EditText
-        android:id="@+id/lastnamebox"
+        android:id="@+id/mailbox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittext_background"
-        android:hint="  Lastname"
+        android:hint=" Email"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
+
+
         app:layout_constraintStart_toStartOf="@+id/guideV1"
-
-
-        app:layout_constraintTop_toBottomOf="@+id/namebox"
-        tools:layout_editor_absoluteX="293dp" />
+        app:layout_constraintTop_toBottomOf="@+id/usernamebox" />
 
     <EditText
         android:id="@+id/passbox"
@@ -53,11 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittext_background"
-        android:hint="  Password"
+        android:hint=" Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideV1"
-        app:layout_constraintTop_toBottomOf="@+id/usernamebox"
-        tools:layout_editor_absoluteX="293dp" />
+        app:layout_constraintTop_toBottomOf="@+id/mailbox" />
 
     <EditText
         android:id="@+id/confirmpass"
@@ -65,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittext_background"
-        android:hint="  Confirm Password"
+        android:inputType="textPassword"
+        android:hint=" Confirm Password"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
         app:layout_constraintStart_toStartOf="@+id/guideV1"
         app:layout_constraintTop_toBottomOf="@+id/passbox"
@@ -76,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:text="REGISTER"
         android:background="@drawable/button_rounded"
@@ -91,6 +79,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="X"
+        android:onClick="closeClick"
         android:background="@drawable/button_rounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

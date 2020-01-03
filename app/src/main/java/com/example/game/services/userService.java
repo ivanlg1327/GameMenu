@@ -7,26 +7,30 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface userService {
 
 
-    @GET("users/{owner}")
+    @GET("/users/{owner}")
     Call<User> getUser(@Path("owner") String owner);
 
-    @GET("users/{owner}/objects")
+    @GET("/users/{owner}/objects")
     Call<List<Item>> getItems(@Path("owner") String owner);
 
-    public static userService getInstance() {
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
+    @POST("adduser")
+    Call<User> createUser(@Body User user);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://147.83.7.206:8080/dsaApp").addConverterFactory(GsonConverterFactory.create(gson)).build();
+    @GET("/users")
+    Call<List<User>> getAllUsers();
 
-        return retrofit.create(userService.class);
-    }
 }

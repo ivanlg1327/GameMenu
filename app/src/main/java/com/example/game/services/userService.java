@@ -21,16 +21,16 @@ import retrofit2.http.Path;
 public interface userService {
 
 
-    @GET("/users/{owner}")
+    @GET("users/{owner}")
     Call<User> getUser(@Path("owner") String owner);
 
-    @GET("/users/{owner}/objects")
+    @GET("users/{owner}/objects")
     Call<List<Item>> getItems(@Path("owner") String owner);
 
     @POST("adduser")
     Call<User> createUser(@Body User user);
 
-    @GET("/users")
+    @GET("users")
     Call<List<User>> getAllUsers();
 
 }

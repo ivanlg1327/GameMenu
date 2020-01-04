@@ -84,7 +84,7 @@ public class SignUpActivity extends GameMenu{
                             .setTitle("Success")
                             .setMessage("Welcome " + responseUser.getName() + "! Your Account has been created!")
                             .setCancelable(false)
-                            .setPositiveButton("OK", (dialog, which) -> finish());
+                            .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
 
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
@@ -99,7 +99,7 @@ public class SignUpActivity extends GameMenu{
                             .setTitle("Error")
                             .setMessage(t.getMessage())
                             .setCancelable(false)
-                            .setPositiveButton("OK", (dialog, which) -> finish());
+                            .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
 
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();

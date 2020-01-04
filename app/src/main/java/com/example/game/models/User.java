@@ -59,6 +59,14 @@ public class User {
         return items;
     }
 
+    public String getPass() {
+        return pass;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
     public void addItem(Item it) {items.add(it);}
 
     public void generateBasicObjects(){

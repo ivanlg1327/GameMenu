@@ -12,14 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.game.activities.GameMenu"
-            android:screenOrientation="landscape"
-             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"
-                    />
-                <category android:name="android.intent.category.LAUNCHER"
-                />
-            </intent-filter>
+            android:screenOrientation="landscape">
             <intent-filter>
                 <data android:scheme="pumpkin.com" android:host="open" />
                 <action android:name="android.intent.action.VIEW" />
@@ -54,5 +47,14 @@
         <activity android:name=".activities.LibraryActivity"
             android:screenOrientation="landscape"
             android:parentActivityName=".activities.MenuActivity"/>
+
+        <activity android:name=".activities.SplashScreenActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"
+                    />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

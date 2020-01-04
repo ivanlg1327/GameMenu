@@ -37,8 +37,8 @@ public class userManager {
 
     }
 
-    public void loginUser(User user, Callback<User> callback){
-        Call<User> call  = userService.getUser(user.getName());
+    public void loginUser(String username, Callback<User> callback){
+        Call<User> call  = userService.getUser(username);
         call.enqueue(callback);
     }
 }

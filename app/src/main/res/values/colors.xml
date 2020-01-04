@@ -5,4 +5,9 @@
     <color name="colorAccent">#8BC34A</color>
     <color name="myWhite">#FFFFFF</color>
     <color name="transparent">#00000000</color>
+    <color name="myBlack">#000000</color>
+    <color name="myGreen">#446668</color>
+    <color name="myDarkGreen">#394F57</color>
+    <color name="myLightGreen">#749593</color>
+    <color name="myContrastOrange">#FD9978</color>
 </resources>

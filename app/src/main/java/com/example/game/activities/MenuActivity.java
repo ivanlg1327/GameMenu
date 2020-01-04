@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -31,6 +32,7 @@ public class MenuActivity extends GameMenu {
     private ImageView imagelogo;
     private ImageButton profilebut;
     private ImageButton librarybut;
+    private TextView money;
     long animationduration = 3000; //ms
     static final int SHOP_ITEM_REQUEST = 1;
 
@@ -39,15 +41,12 @@ public class MenuActivity extends GameMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_layout);
 
-        Item a = new Item("Espada","el espadut");
-        Item b = new Item ("Escudo", "el escudut");
-        Item c = new Item ("Llave", "el llavut");
+        Gson gson = new Gson();
+        this.user = gson.fromJson(getIntent().getStringExtra("myjson"), User.class);
 
-        LinkedList<Item> its = new LinkedList<Item>();
-        its.add(a);
-        its.add(b);
-        its.add(c);
-        this.user = new User("Marc", "Vila","129321416",its);
+        money = findViewById(R.id.moneytext);
+        money.setText(Integer.toString(this.user.getMoney()));
+
 
         imagelogo = findViewById(R.id.imageLogo);
         ObjectAnimator animatorY_1 = ObjectAnimator.ofFloat(imagelogo,"y",150f);

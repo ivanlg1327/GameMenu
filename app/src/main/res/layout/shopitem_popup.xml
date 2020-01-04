@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@drawable/textboxback">
@@ -12,9 +12,12 @@
         android:id="@+id/imgitem"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:src="@mipmap/ic_launcher_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15" />
@@ -23,34 +26,35 @@
         android:id="@+id/nameitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
         android:text="NOMBRE"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imgitem"
-        app:layout_constraintTop_toBottomOf="@+id/imgitem" />
+        app:layout_constraintStart_toEndOf="@+id/imgitem"
+        app:layout_constraintTop_toTopOf="@+id/imgitem" />
 
     <TextView
         android:id="@+id/descpitem"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="DESCRIPCION"
+        android:maxLines="5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/nameitem"
-        app:layout_constraintTop_toTopOf="@+id/nameitem" />
+        app:layout_constraintStart_toEndOf="@+id/imgitem"
+        app:layout_constraintTop_toBottomOf="@+id/nameitem" />
 
     <Button
         android:id="@+id/buybutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="12dp"
         android:background="@drawable/button_rounded"
-        android:text="BUY"
-        app:layout_constraintBottom_toBottomOf="@+id/descpitem"
-        app:layout_constraintEnd_toEndOf="@+id/imgitem"
-        app:layout_constraintStart_toEndOf="@+id/nameitem" />
+        android:text="Buy for 100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgitem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

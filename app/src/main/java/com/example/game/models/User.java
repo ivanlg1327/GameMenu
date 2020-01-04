@@ -81,4 +81,40 @@ public class User {
         items.add(jet); items.add(suit); items.add(gun);
         this.money = 300;
     }
+
+    public int getAttackStat()
+    {
+        int atk = 0;
+        for(int i = 0; i < this.items.size();i++){
+            atk = atk + this.items.get(i).getAtk();
+        }
+        return atk;
+    }
+
+    public int getHealthStat()
+    {
+        int hp = 0;
+        for(int i = 0; i < this.items.size();i++){
+            hp = hp + this.items.get(i).getHp();
+        }
+        return hp;
+    }
+
+    public int getSpeedStat()
+    {
+        int spd = 0;
+        for(int i = 0; i < this.items.size();i++){
+            spd = spd + this.items.get(i).getSpd();
+        }
+        return spd;
+    }
+
+    public int getShieldStat()
+    {
+        int sh = 0;
+        for(int i = 0; i < this.items.size();i++){
+            sh = sh + this.items.get(i).getShield();
+        }
+        return sh;
+    }
 }

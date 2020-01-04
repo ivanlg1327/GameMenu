@@ -24,6 +24,11 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
     ImageView profileimg;
     TextView nameText;
     TextView dataText;
+    TextView numObjectText;
+    TextView atkText;
+    TextView spdText;
+    TextView hpText;
+    TextView shyText;
 
     public ItemAdapter myAdapter;
     public RecyclerView recyclerView;
@@ -41,6 +46,11 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
         profileimg = findViewById(R.id.profileicon);
         nameText = findViewById(R.id.Name);
         dataText = findViewById(R.id.data);
+        numObjectText = findViewById(R.id.objectbox);
+        atkText = findViewById(R.id.attackbox);
+        spdText = findViewById(R.id.speedbox);
+        hpText = findViewById(R.id.hpbox);
+        shyText = findViewById(R.id.shieldbox);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerobj);
         recyclerView.setHasFixedSize(true);
@@ -51,7 +61,12 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
         recyclerView.setAdapter(mAdapter);
 
         nameText.setText(user.getName());
-        dataText.setText(user.getEmail() + "Objects: " + String.valueOf(user.getItems().size()));
+        dataText.setText(user.getEmail());
+        numObjectText.setText("Objects: " + String.valueOf(user.getItems().size()));
+        atkText.setText(String.valueOf(this.user.getAttackStat()));
+        hpText.setText(String.valueOf(this.user.getHealthStat()));
+        spdText.setText(String.valueOf(this.user.getSpeedStat()));
+        shyText.setText(String.valueOf(this.user.getShieldStat()));
 
     }
 

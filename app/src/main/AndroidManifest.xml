@@ -49,11 +49,12 @@
             android:parentActivityName=".activities.MenuActivity"/>
 
         <activity android:name=".activities.SplashScreenActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.GameMenu">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN"
                     />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

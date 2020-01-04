@@ -11,13 +11,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.content.SharedPreferences;
 
 import com.example.game.R;
 import com.example.game.models.User;
-import com.example.game.services.userManager;
+import com.example.game.services.apiManager;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -30,7 +28,7 @@ public class GameMenu extends AppCompatActivity {
     private EditText textusername;
     private EditText textpassword;
     ProgressDialog progressDialog;
-    private userManager uM;
+    private apiManager uM;
     public SharedPreferences sp;
     public SharedPreferences.Editor editor;
     AlertDialog.Builder alertDialogBuilder;
@@ -90,7 +88,7 @@ public class GameMenu extends AppCompatActivity {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.show();
 
-        uM = userManager.getInstance();
+        uM = apiManager.getInstance();
         if(username != null && pass != null ){
         uM.loginUser(username, new Callback<User>() {
                     @Override

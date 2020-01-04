@@ -10,51 +10,74 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.game.R;
 import com.example.game.models.Item;
+import com.example.game.services.apiManager;
 import com.example.game.utils.ItemAdapter;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.List;
 
-public class ShopActivity extends MenuActivity implements ItemAdapter.OnItemListener {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnItemListener {
 
     public ItemAdapter myAdapter;
     public RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private apiManager aM;
 
 
-    LinkedList<Item> its;
-    LinkedList<Item> itsbuyed;
+    List<Item> its;
+    List<Item> itsbuyed;
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedIndstanceState) {
+        super.onCreate(savedIndstanceState);
         setContentView(R.layout.shop_layout);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclershop);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
-
-        Item a = new Item("Jetpack","el jetpacut");
-        Item b = new Item ("Pistola", "el pistolut");
-        Item c = new Item ("Llave", "el llavut");
-
-        its = new LinkedList<Item>();
-        its.add(a);
-        its.add(b);
-        its.add(c);
-
         itsbuyed = new LinkedList<Item>();
 
-        mAdapter = new ItemAdapter(its,this);
-        recyclerView.setAdapter(mAdapter);
+        aM = apiManager.getInstance();
+        aM.getAllObjects(new Callback<List<Item>>() {
+            @Override
+            public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
+                if (response.isSuccessful()) {
+                    its = response.body();
+                    mAdapter = new ItemAdapter(its,ShopActivity.this::onItemClick);
+                    recyclerView.setAdapter(mAdapter);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Item>> call, Throwable t) {
+
+                android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(ShopActivity.this);
+
+                alertDialogBuilder
+                        .setTitle("Error")
+                        .setMessage("Shop not available")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
+
+            }
+        });
+
     }
 
     @Override

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.R;
 import com.example.game.models.User;
-import com.example.game.services.userManager;
+import com.example.game.services.apiManager;
 import com.google.gson.Gson;
 
 import retrofit2.Call;
@@ -19,7 +19,7 @@ import retrofit2.Response;
 public class SplashScreenActivity extends AppCompatActivity {
 
     SharedPreferences spss;
-    private userManager uM;
+    private apiManager uM;
     private String username;
     private String password;
 
@@ -35,7 +35,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         if(username != null && password != null){
             try{
-                uM = userManager.getInstance();
+                uM = apiManager.getInstance();
                 uM.loginUser(username, new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
@@ -70,6 +70,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent i = new Intent(SplashScreenActivity.this, GameMenu.class);
                 startActivity(i);
             }
+        }
+        else {
+            Intent i = new Intent(SplashScreenActivity.this, GameMenu.class);
+            startActivity(i);
         }
 
     }

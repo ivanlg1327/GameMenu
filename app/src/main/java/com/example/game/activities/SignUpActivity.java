@@ -7,12 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.game.R;
 import com.example.game.models.User;
-import com.example.game.services.userManager;
-import com.example.game.services.userService;
+import com.example.game.services.apiManager;
 
 import java.io.IOException;
 
@@ -28,7 +26,7 @@ public class SignUpActivity extends GameMenu{
     EditText paswordconf;
     Button register;
     private User newUser;
-    private userManager uM;
+    private apiManager uM;
 
 
 
@@ -68,7 +66,7 @@ public class SignUpActivity extends GameMenu{
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             progressDialog.show();
 
-            uM = userManager.getInstance();
+            uM = apiManager.getInstance();
 
             uM.createUser(this.newUser, new Callback<User>() {
                 @Override

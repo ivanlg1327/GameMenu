@@ -119,6 +119,16 @@
             android:textColor="@color/myWhite" />
 
         <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="left"
+            android:layout_marginHorizontal="8dp"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/trophy" />
+
+        <ImageButton
             android:id="@+id/settbut"
             android:layout_width="25dp"
             android:layout_height="25dp"

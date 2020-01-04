@@ -1,35 +1,35 @@
 package com.example.game.services;
 
 import com.example.game.models.*;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class userManager {
+public class apiManager {
 
-    private static userService userService;
-    private static userManager userManager;
+    private static apiService apiService;
+    private static apiManager apiManager;
 
-    private userManager() {
+    private apiManager() {
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://147.83.7.206:8080/dsaApp/").addConverterFactory(GsonConverterFactory.create()).build();
 
-        userService = retrofit.create(userService.class);
+        apiService = retrofit.create(apiService.class);
     }
 
-    public static  userManager getInstance(){
-        if(userManager == null){
-            userManager = new userManager();
+    public static apiManager getInstance(){
+        if(apiManager == null){
+            apiManager = new apiManager();
         }
-        return userManager;
+        return apiManager;
     }
 
     public void createUser(User user, Callback<User> callback){
-        Call<User> call = userService.createUser(user);
+        Call<User> call = apiService.createUser(user);
         call.enqueue(callback);
     }
 
@@ -38,7 +38,12 @@ public class userManager {
     }
 
     public void loginUser(String username, Callback<User> callback){
-        Call<User> call  = userService.getUser(username);
+        Call<User> call  = apiService.getUser(username);
+        call.enqueue(callback);
+    }
+
+    public void getAllObjects(Callback<List<Item>> callback){
+        Call<List<Item>> call = apiService.getAllObjetcs();
         call.enqueue(callback);
     }
 }

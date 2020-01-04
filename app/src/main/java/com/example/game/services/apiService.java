@@ -12,13 +12,14 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface userService {
+public interface apiService {
 
 
     @GET("users/{owner}")
@@ -32,5 +33,11 @@ public interface userService {
 
     @GET("users")
     Call<List<User>> getAllUsers();
+
+    @GET("objects")
+    Call<List<Item>> getAllObjetcs();
+
+    @PUT("modifyUser")
+    Call<User> modifyUser();
 
 }

@@ -97,7 +97,11 @@ public class MenuActivity extends GameMenu {
     public void shopClick(View view){
 
         Button info = (Button)view;
+        Gson gson = new Gson();
+        String myJson = gson.toJson(this.user);
+
         Intent intentshop = new Intent(this , ShopActivity.class);
+        intentshop.putExtra("myjson", myJson);
         startActivityForResult(intentshop, SHOP_ITEM_REQUEST);
 
     }

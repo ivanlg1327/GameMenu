@@ -12,6 +12,10 @@ public class PopItemActivity extends ShopActivity {
 
         TextView nameitembox;
         TextView descpitembox;
+        TextView atk;
+        TextView shy;
+        TextView hp;
+        TextView spd;
         ImageView imgitem;
         Button buybt;
 
@@ -23,6 +27,10 @@ public class PopItemActivity extends ShopActivity {
         this.nameitembox = (TextView) findViewById(R.id.nameitem);
         this.descpitembox = (TextView) findViewById(R.id.descpitem);
         this.buybt = (Button) findViewById(R.id.buybutton);
+        this.atk = (TextView)findViewById(R.id.attackstatbox);
+        this.shy = (TextView)findViewById(R.id.shieldstatbox);
+        this.hp = (TextView)findViewById(R.id.hpstatbox);
+        this.spd = (TextView)findViewById(R.id.speedstatbox);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

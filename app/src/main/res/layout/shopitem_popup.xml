@@ -6,14 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@drawable/textboxback">
+    android:background="@drawable/imagebutton_border">
 
     <ImageView
         android:id="@+id/imgitem"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@mipmap/ic_launcher_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,17 +26,21 @@
 
     <TextView
         android:id="@+id/nameitem"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="NOMBRE"
+        android:textColor="@color/myWhite"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgitem"
         app:layout_constraintTop_toTopOf="@+id/imgitem" />
 
     <TextView
         android:id="@+id/descpitem"
         android:layout_width="0dp"
+        android:textColor="@color/myWhite"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -48,13 +54,116 @@
         android:id="@+id/buybutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:padding="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button_rounded"
+        android:padding="12dp"
         android:text="Buy for 100"
+        android:textColor="@color/myContrastOrange"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgitem" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buybutton"
+        app:layout_constraintStart_toEndOf="@+id/imgitem"
+        app:layout_constraintTop_toBottomOf="@+id/descpitem">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/myWhite"
+                android:padding="4dp"
+                android:text="SHIELD:"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/shieldstatbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textColor="@color/myContrastOrange"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@color/myWhite"
+                android:text="HEALTH:"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/hpstatbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textColor="@color/myContrastOrange"
+                android:textSize="12dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="SPEED:"
+                android:textColor="@color/myWhite"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/speedstatbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textColor="@color/myContrastOrange"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textColor="@color/myWhite"
+                android:text="ATTACK: "
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/attackstatbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0"
+                android:textColor="@color/myContrastOrange"
+                android:textSize="12dp" />
+
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

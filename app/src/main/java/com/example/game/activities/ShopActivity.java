@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.game.R;
 import com.example.game.models.Item;
+import com.example.game.models.User;
 import com.example.game.services.apiManager;
 import com.example.game.utils.ItemAdapter;
 import com.google.gson.Gson;
@@ -36,6 +37,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private apiManager aM;
+    private User userShop;
 
 
     List<Item> its;
@@ -51,6 +53,9 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
         itsbuyed = new LinkedList<Item>();
+
+        Gson gson = new Gson();
+        this.userShop = gson.fromJson(getIntent().getStringExtra("myjson"), User.class);
 
         aM = apiManager.getInstance();
         aM.getAllObjects(new Callback<List<Item>>() {
@@ -90,11 +95,35 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
         TextView itemName = (TextView) mView.findViewById(R.id.nameitem);
         TextView itemdescriptor = (TextView) mView.findViewById(R.id.descpitem);
         ImageView itemimg = (ImageView) mView.findViewById(R.id.imgitem);
+        TextView atk = (TextView) mView.findViewById(R.id.attackstatbox);
+        TextView shy = (TextView) mView.findViewById(R.id.shieldstatbox);
+        TextView hp = (TextView) mView.findViewById(R.id.hpstatbox);
+        TextView spd = (TextView) mView.findViewById(R.id.speedstatbox);
         Button buybut = (Button) mView.findViewById(R.id.buybutton);
 
         itemName.setText(itempop.getName());
         itemdescriptor.setText(itempop.getDescription());
 
+        String signo = "+";
+        atk.setText(signo + String.valueOf(itempop.getAtk()));
+        shy.setText(signo + String.valueOf(itempop.getShield()));
+        hp.setText(signo + String.valueOf(itempop.getHp()));
+        spd.setText(signo + String.valueOf(itempop.getSpd()));
+        if(itempop.getShield() < 0 || itempop.getAtk() < 0 || itempop.getSpd() < 0 || itempop.getHp() < 0){
+            if(itempop.getHp() < 0) {
+                hp.setText(String.valueOf(itempop.getHp()));
+            }
+            if(itempop.getSpd() < 0) {
+                spd.setText(String.valueOf(itempop.getSpd()));
+            }
+            if(itempop.getAtk() < 0) {
+                atk.setText(String.valueOf(itempop.getAtk()));
+            }
+            if(itempop.getShield() < 0) {
+                shy.setText(String.valueOf(itempop.getShield()));
+            }
+
+        }
 
         mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
@@ -103,7 +132,34 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
         buybut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Log.d("TAG", "Buyed:" + itempop.getName());
+
+                userShop.addItem(itempop);
+                userShop.buy(100);
+                aM = apiManager.getInstance();
+                aM.buyObject(userShop, new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if (response.isSuccessful() == true){
+                            buybut.setBackground(getDrawable(R.drawable.check));
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+
+                        android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(ShopActivity.this);
+
+                        alertDialogBuilder
+                                .setTitle("Error")
+                                .setMessage("Unable to perform request")
+                                .setCancelable(false)
+                                .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
+
+                        android.app.AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+                    }
+                });
+
                 dialog.cancel();
                 itsbuyed.add(itempop);
             }

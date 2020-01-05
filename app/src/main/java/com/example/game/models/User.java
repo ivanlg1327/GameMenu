@@ -117,4 +117,8 @@ public class User {
         }
         return sh;
     }
+
+    public void buy(int price){
+        this.money = this.money - price;
+    }
 }

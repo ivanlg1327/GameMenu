@@ -33,8 +33,9 @@ public class apiManager {
         call.enqueue(callback);
     }
 
-    public void buyObject(int price, Item item){
-
+    public void buyObject(User user, Callback<User> callback){
+        Call<User> call = apiService.modifyUser(user);
+        call.enqueue(callback);
     }
 
     public void loginUser(String username, Callback<User> callback){

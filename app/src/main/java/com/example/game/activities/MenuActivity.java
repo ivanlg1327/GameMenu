@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,6 +34,7 @@ public class MenuActivity extends GameMenu {
     private ImageButton profilebut;
     private ImageButton librarybut;
     private TextView money;
+    Animation bounceAnimation;
     long animationduration = 3000; //ms
     static final int SHOP_ITEM_REQUEST = 1;
 
@@ -49,6 +51,10 @@ public class MenuActivity extends GameMenu {
 
 
         imagelogo = findViewById(R.id.imageLogo);
+        profilebut = findViewById(R.id.buttonprofile);
+        librarybut = findViewById(R.id.buttonLibrary);
+
+
         ObjectAnimator animatorY_1 = ObjectAnimator.ofFloat(imagelogo,"y",150f);
         animatorY_1.setDuration(animationduration);
         animatorY_1.setRepeatCount(Animation.INFINITE);
@@ -58,29 +64,11 @@ public class MenuActivity extends GameMenu {
         animatorSet.playTogether(animatorY_1);
         animatorSet.start();
 
-        /*
-        profilebut = findViewById(R.id.buttonprofile);
-        ObjectAnimator animatorY_2 = ObjectAnimator.ofFloat(profilebut,"y",10f);
-        animatorY_2.setDuration(250);
-        animatorY_2.setRepeatCount(Animation.INFINITE);
-        animatorY_2.setRepeatMode(ValueAnimator.REVERSE);
-        AnimatorSet animatorSet_2 = new AnimatorSet();
 
-        animatorSet_2.playTogether(animatorY_2);
-        animatorSet_2.start();
-
-
-        librarybut = findViewById(R.id.buttonLibrary);
-        ObjectAnimator animatorY_3 = ObjectAnimator.ofFloat(librarybut,"y",10f);
-        animatorY_3.setDuration(250);
-        animatorY_3.setRepeatCount(Animation.INFINITE);
-        animatorY_3.setRepeatMode(ValueAnimator.REVERSE);
-        AnimatorSet animatorSet_3 = new AnimatorSet();
-
-        animatorSet_3.playTogether(animatorY_3);
-        animatorSet_3.start();
-         */
-
+        bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        bounceAnimation.setRepeatCount(Animation.INFINITE);
+        profilebut.startAnimation(bounceAnimation);
+        librarybut.startAnimation(bounceAnimation);
 
     }
 

@@ -8,14 +8,17 @@
     android:background="@drawable/imagebutton_border">
 
     <ImageView
-        android:id="@+id/icon"
+        android:id="@+id/iconObject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="20dip"
         android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dip"
         android:contentDescription="TODO"
-        android:src="@mipmap/ic_launcher_round" />
+        android:maxWidth="75dp"
+        android:maxHeight="75dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/idcard" />
 
     <TextView
         android:id="@+id/secondLine"
@@ -42,7 +45,7 @@
         android:maxWidth="125dp"
         android:maxLines="10"
         android:textAlignment="center"
-        android:layout_below="@+id/icon"
+        android:layout_below="@+id/iconObject"
         android:layout_alignParentLeft="true"
         android:text="Object NAME"
         android:textSize="16sp" />

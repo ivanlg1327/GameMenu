@@ -21,6 +21,7 @@ import com.example.game.models.User;
 import com.example.game.services.apiManager;
 import com.example.game.utils.ItemAdapter;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -47,6 +48,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
     protected void onCreate(Bundle savedIndstanceState) {
         super.onCreate(savedIndstanceState);
         setContentView(R.layout.shop_layout);
+        Picasso.with(this).setLoggingEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclershop);
         recyclerView.setHasFixedSize(true);
@@ -71,8 +73,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
                             i = -1;
                         }
                     }
-
-                    mAdapter = new ItemAdapter(its,ShopActivity.this::onItemClick);
+                    mAdapter = new ItemAdapter(its,ShopActivity.this::onItemClick,ShopActivity.this);
                     recyclerView.setAdapter(mAdapter);
                 }
 
@@ -133,6 +134,8 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
             }
 
         }
+
+        Picasso.with(mView.getContext()).load(itempop.getUrl()).into(itemimg);
 
         if(userShop.getMoney() <= 100){
             buybut.setVisibility(View.INVISIBLE);

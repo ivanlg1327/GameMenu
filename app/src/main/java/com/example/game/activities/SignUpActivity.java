@@ -2,6 +2,7 @@ package com.example.game.activities;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -86,6 +87,9 @@ public class SignUpActivity extends GameMenu{
 
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
+
+                    Intent i = new Intent(SignUpActivity.this,GameMenu.class);
+                    startActivity(i);
                 }
 
                 @Override

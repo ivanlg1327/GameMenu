@@ -23,6 +23,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView txtHeader;
         public TextView txtFooter;
+        public ImageView img;
         public View layout;
         OnItemListener onItemListener;
 
@@ -31,6 +32,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            img = (ImageView) v.findViewById(R.id.iconObject);
             this.onItemListener = onItemListener;
             itemView.setOnClickListener(this);
         }
@@ -54,9 +56,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         this.items = itemsx;
     }
 
-    public ItemAdapter(List<Item> itemsx, OnItemListener onItemListener){
+    public ItemAdapter(List<Item> itemsx, OnItemListener onItemListener,Context context){
         this.items = itemsx;
+        this.context = context;
         this.mOnItemListener = onItemListener;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     @NonNull
@@ -74,6 +81,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         holder.txtHeader.setText(it.getName());
         holder.txtFooter.setText(it.getDescription());
 
+        Picasso.with(context).load(it.getUrl()).into(holder.img);
     }
 
     @Override

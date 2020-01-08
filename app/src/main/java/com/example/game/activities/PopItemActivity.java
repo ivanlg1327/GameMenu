@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.game.R;
+import com.squareup.picasso.Picasso;
 
 public class PopItemActivity extends ShopActivity {
 

@@ -77,6 +77,7 @@ public class User {
         suit.setAtk(0); suit.setHp(50); suit.setSpd(0); suit.setShi(50);
         Item gun = new Item("Pistol 1","Your first pistol, be careful with it!");
         gun.setAtk(100); gun.setHp(0); gun.setSpd(0); gun.setShi(0);
+        gun.setUrl("http://147.83.7.206:8080/static/images/items/pistollvl1.png");
 
         items.add(jet); items.add(suit); items.add(gun);
         this.money = 300;

@@ -25,6 +25,9 @@ public class Item implements Serializable {
     @SerializedName("vida")
     @Expose
     private int hp;
+    @SerializedName("url")
+    @Expose
+    private String url;
 
 
 
@@ -80,5 +83,9 @@ public class Item implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUrl(){
+        return url;
     }
 }

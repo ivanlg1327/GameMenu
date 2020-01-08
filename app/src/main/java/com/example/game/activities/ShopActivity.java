@@ -63,6 +63,15 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
                 if (response.isSuccessful()) {
                     its = response.body();
+
+                    for(int i =0; i < its.size();i++){
+                        int finalI = i;
+                        if(userShop.getItems().stream().anyMatch(o -> o.getName().equals(its.get(finalI).getName()))){
+                            its.remove(its.get(finalI));
+                            i = -1;
+                        }
+                    }
+
                     mAdapter = new ItemAdapter(its,ShopActivity.this::onItemClick);
                     recyclerView.setAdapter(mAdapter);
                 }
@@ -123,6 +132,10 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
                 shy.setText(String.valueOf(itempop.getShield()));
             }
 
+        }
+
+        if(userShop.getMoney() <= 100){
+            buybut.setVisibility(View.INVISIBLE);
         }
 
         mBuilder.setView(mView);

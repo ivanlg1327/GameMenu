@@ -42,6 +42,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/imagebutton_border"
+        android:elevation="1dp"
         android:maxWidth="50dp"
         android:maxHeight="50dp"
         android:onClick="profileClick"
@@ -99,7 +100,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonprofile"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView

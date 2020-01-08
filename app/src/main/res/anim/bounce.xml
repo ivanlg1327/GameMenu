@@ -3,14 +3,12 @@
     android:fillAfter="true"
     android:interpolator="@android:anim/bounce_interpolator">
 
-    <scale
-        android:duration="1000"
-        android:fromXScale="1.0"
-        android:fromYScale="1.0"
-        android:toXScale="1.0"
-        android:toYScale="0.7"
-        android:repeatMode="restart"
-        android:repeatCount = "infinite"
-        />
+    <translate
+        android:duration="800"
+        android:fillAfter="true"
+        android:fromYDelta="0%p"
+        android:toYDelta="5%p"
+        android:repeatMode="reverse"
+        android:repeatCount = "infinite"/>
 
 </set>

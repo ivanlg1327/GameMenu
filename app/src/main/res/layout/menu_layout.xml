@@ -137,6 +137,7 @@
             android:layout_marginHorizontal="8dp"
             android:background="@color/transparent"
             android:scaleType="fitXY"
+            android:onClick="settingClick"
             android:src="@drawable/settings" />
 
         <ImageButton

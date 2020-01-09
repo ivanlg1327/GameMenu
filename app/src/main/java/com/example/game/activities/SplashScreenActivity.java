@@ -28,6 +28,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen_layout);
 
+
         spss = getApplicationContext().getSharedPreferences("login",0);
 
         String username = spss.getString("usernameKey",null);

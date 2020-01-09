@@ -23,7 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class GameMenu extends AppCompatActivity {
-    //loginActivity
 
     private EditText textusername;
     private EditText textpassword;

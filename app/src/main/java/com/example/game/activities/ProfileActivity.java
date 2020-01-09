@@ -57,8 +57,10 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ItemAdapter(user.getItems(),this,ProfileActivity.this);
-        recyclerView.setAdapter(mAdapter);
+        myAdapter = new ItemAdapter(this);
+        myAdapter.setOnItemListener(this);
+        myAdapter.setItems(user.getItems());
+        recyclerView.setAdapter(myAdapter);
 
         nameText.setText(user.getName());
         dataText.setText(user.getEmail());

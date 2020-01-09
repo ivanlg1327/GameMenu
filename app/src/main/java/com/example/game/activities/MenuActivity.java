@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -112,5 +113,33 @@ public class MenuActivity extends GameMenu {
         ImageButton lib = (ImageButton) view;
         LibraryActivity libraryActivity = new LibraryActivity();
         libraryActivity.show(getSupportFragmentManager(),"");
+    }
+
+    public void settingClick(View view){
+        ImageButton set = (ImageButton) view;
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MenuActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.settings_layout,null);
+
+        Button logout = (Button) mView.findViewById(R.id.logoutbut);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sp = getApplicationContext().getSharedPreferences("login",0);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.commit();
+
+                Intent i = new Intent(MenuActivity.this,SplashScreenActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 }

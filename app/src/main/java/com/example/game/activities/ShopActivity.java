@@ -35,7 +35,6 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
     public ItemAdapter myAdapter;
     public RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private apiManager aM;
     private User userShop;
@@ -73,8 +72,10 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
                             i = -1;
                         }
                     }
-                    mAdapter = new ItemAdapter(its,ShopActivity.this::onItemClick,ShopActivity.this);
-                    recyclerView.setAdapter(mAdapter);
+                    myAdapter = new ItemAdapter(ShopActivity.this);
+                    myAdapter.setOnItemListener(ShopActivity.this::onItemClick);
+                    myAdapter.setItems(its);
+                    recyclerView.setAdapter(myAdapter);
                 }
 
             }
@@ -135,9 +136,9 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
         }
 
-        Picasso.with(mView.getContext()).load(itempop.getUrl()).into(itemimg);
+        Picasso.with(this).load(itempop.getUrl()).into(itemimg);
 
-        if(userShop.getMoney() <= 100){
+        if(userShop.getMoney() < 100){
             buybut.setVisibility(View.INVISIBLE);
         }
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +17,7 @@ import com.example.game.models.*;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
@@ -47,24 +49,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
     private List<Item> items;
     private OnItemListener mOnItemListener;
 
-    public ItemAdapter(Context context, Item repox) {
-        this.item =  repox;
+    public ItemAdapter(Context context) {
+        this.items =  new ArrayList<Item>();
         this.context = context;
     }
 
-    public ItemAdapter(List<Item> itemsx){
-        this.items = itemsx;
-    }
+   public void setOnItemListener(OnItemListener mOnItemListener){
+        this.mOnItemListener = mOnItemListener;
+   }
 
-    public ItemAdapter(List<Item> itemsx, OnItemListener onItemListener,Context context){
-        this.items = itemsx;
-        this.context = context;
-        this.mOnItemListener = onItemListener;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
+   public void setItems(List<Item> itemsx){
+        this.items.addAll(itemsx);
+        notifyDataSetChanged();
+   }
 
     @NonNull
     @Override
@@ -80,8 +77,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         Item it = items.get(position);
         holder.txtHeader.setText(it.getName());
         holder.txtFooter.setText(it.getDescription());
+        try{
 
-        Picasso.with(context).load(it.getUrl()).into(holder.img);
+            Picasso.with(context).load(it.getUrl()).into(holder.img);
+        }
+        catch (Exception e){
+            holder.img.setImageResource(R.drawable.idcard);
+        }
+
     }
 
     @Override

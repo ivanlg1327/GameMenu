@@ -2,4 +2,5 @@
     <string name="app_name">My Application</string>
     <string name="play">Play</string>
     <string name="shop">Shop</string>
+    <string name="game_view_content_description">Game view</string>
 </resources>

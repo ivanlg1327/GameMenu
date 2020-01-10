@@ -5,9 +5,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,10 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.R;
 import com.example.game.models.Item;
@@ -35,6 +31,7 @@ public class MenuActivity extends GameMenu {
     private ImageButton profilebut;
     private ImageButton librarybut;
     private TextView money;
+    private Button playBut;
     Animation bounceAnimation;
     long animationduration = 3000; //ms
     static final int SHOP_ITEM_REQUEST = 1;
@@ -70,6 +67,16 @@ public class MenuActivity extends GameMenu {
         bounceAnimation.setRepeatCount(Animation.INFINITE);
         profilebut.startAnimation(bounceAnimation);
         librarybut.startAnimation(bounceAnimation);
+
+        playBut = findViewById(R.id.playbut);
+        playBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MenuActivity.this, UnityBridgeActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 

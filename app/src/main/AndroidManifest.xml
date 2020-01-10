@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.game">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,6 +9,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Space"
+        tools:replace="icon, label"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -57,6 +59,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SettingsActivity" />
+        <activity android:name=".activities.SettingsActivity"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MenuActivity"/>
+        <activity android:name=".activities.UnityBridgeActivity"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MenuActivity"
+            android:launchMode="singleInstance"/>
     </application>
 </manifest>

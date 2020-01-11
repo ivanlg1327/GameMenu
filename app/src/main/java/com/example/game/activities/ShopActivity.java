@@ -47,7 +47,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
     protected void onCreate(Bundle savedIndstanceState) {
         super.onCreate(savedIndstanceState);
         setContentView(R.layout.shop_layout);
-        Picasso.with(this).setLoggingEnabled(true);
+        Picasso.get().setLoggingEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclershop);
         recyclerView.setHasFixedSize(true);
@@ -136,7 +136,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
         }
 
-        Picasso.with(this).load(itempop.getUrl()).into(itemimg);
+        Picasso.get().load(itempop.getUrl()).into(itemimg);
 
         if(userShop.getMoney() < 100){
             buybut.setVisibility(View.INVISIBLE);

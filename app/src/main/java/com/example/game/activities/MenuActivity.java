@@ -5,11 +5,14 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -153,8 +156,17 @@ public class MenuActivity extends GameMenu {
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(MenuActivity.this);
         View mView = getLayoutInflater().inflate(R.layout.settings_layout,null);
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("login",0);
 
         Button logout = (Button) mView.findViewById(R.id.logoutbut);
+        ImageButton git = (ImageButton) mView.findViewById(R.id.githubbut);
+        ImageButton unity = (ImageButton) mView.findViewById(R.id.unitybut);
+        ImageButton web = (ImageButton) mView.findViewById(R.id.webbut);
+        CheckBox rembcheck = (CheckBox) mView.findViewById(R.id.remembercheck);
+
+        if(sp.contains("usernameKey") || sp.contains("passwordKey")){
+            rembcheck.setChecked(true);
+        }
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +182,59 @@ public class MenuActivity extends GameMenu {
                 finish();
             }
         });
+
+        git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://github.com/ivanlg1327/GameMenu"));
+                startActivity(intent);
+            }
+        });
+
+        unity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://github.com/ivanlg1327/GameMenu"));
+                startActivity(intent);
+            }
+        });
+
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("http://147.83.7.206:8080/"));
+                startActivity(intent);
+            }
+        });
+
+        rembcheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("usernameKey", user.getName());
+                    editor.putString("passwordKey", user.getPass());
+
+                    editor.commit();
+                }
+                if(isChecked == false){
+                    SharedPreferences.Editor editor = sp.edit();
+
+                    editor.clear();
+                    editor.commit();
+                }
+            }
+        });
+
 
         mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();

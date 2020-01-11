@@ -15,8 +15,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginRight="20dip"
         android:contentDescription="TODO"
-        android:maxWidth="75dp"
-        android:maxHeight="75dp"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:minWidth="100dp"
+        android:minHeight="100dp"
         android:scaleType="fitXY"
         android:src="@drawable/idcard" />
 

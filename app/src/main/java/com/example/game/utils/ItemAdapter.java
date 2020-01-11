@@ -79,7 +79,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         holder.txtFooter.setText(it.getDescription());
         try{
 
-            Picasso.with(context).load(it.getUrl()).into(holder.img);
+            Picasso.get().load(it.getUrl()).into(holder.img);
         }
         catch (Exception e){
             holder.img.setImageResource(R.drawable.idcard);

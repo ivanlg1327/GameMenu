@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.game.R;
 import com.example.game.models.User;
 import com.example.game.utils.ItemAdapter;
+import com.example.game.utils.RunnableSprites;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
@@ -35,6 +36,8 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    //private RunnableSprites myRunnable;
+    //Integer[] spritesP = {R.drawable.idle_1,R.drawable.idle_2,R.drawable.idle_3,R.drawable.idle_4,R.drawable.idle_5,R.drawable.idle_6,R.drawable.idle_7,R.drawable.idle_8,R.drawable.idle_9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -146,7 +146,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@color/transparent"
             android:scaleType="fitXY"
-            android:src="@drawable/help" />
+            android:onClick="helpClick"
+            android:src="@drawable/help"/>
     </LinearLayout>
 
     <ImageView

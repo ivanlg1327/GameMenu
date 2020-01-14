@@ -24,6 +24,7 @@ import com.example.game.models.Item;
 import com.example.game.models.User;
 import com.example.game.utils.RunnableSprites;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -235,6 +236,31 @@ public class MenuActivity extends GameMenu {
             }
         });
 
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+    }
+
+    public void helpClick(View view){
+        ImageButton i = (ImageButton)view;
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MenuActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.help_layout,null);
+
+        ImageView pere = mView.findViewById(R.id.pereimg);
+        ImageView juanjo = mView.findViewById(R.id.juanjoimg);
+        ImageView marc = mView.findViewById(R.id.marcimg);
+        ImageView ivan = mView.findViewById(R.id.ivanimg);
+        ImageView arnau = mView.findViewById(R.id.arnauimg);
+        ImageView marina = mView.findViewById(R.id.marinaimg);
+
+        Picasso.get().load("https://avatars2.githubusercontent.com/u/55236125?v=4").into(marc);
+        Picasso.get().load("https://avatars2.githubusercontent.com/u/55382512?v=4").into(marina);
+        Picasso.get().load("https://avatars3.githubusercontent.com/u/37080096?v=4").into(ivan);
+        Picasso.get().load("https://avatars0.githubusercontent.com/u/47161913?v=4").into(pere);
+        Picasso.get().load("https://avatars2.githubusercontent.com/u/55409372?v=4").into(juanjo);
+        Picasso.get().load("https://avatars3.githubusercontent.com/u/37800197?v=4").into(arnau);
 
         mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();

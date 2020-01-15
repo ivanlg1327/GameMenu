@@ -22,6 +22,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.example.game.R;
 import com.example.game.models.Item;
 import com.example.game.models.User;
+import com.example.game.services.apiManager;
 import com.example.game.utils.RunnableSprites;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
@@ -34,6 +35,10 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MenuActivity extends GameMenu {
 
     private User user;
@@ -43,11 +48,13 @@ public class MenuActivity extends GameMenu {
     private ImageView bgimg;
     private TextView money;
     private Button playBut;
+    private ImageView refresh;
     Animation bounceAnimation;
     long animationduration = 3000; //ms
     static final int SHOP_ITEM_REQUEST = 1;
     private Integer[] framesbg1 = {R.drawable.framebg_00,R.drawable.framebg_01,R.drawable.framebg_02,R.drawable.framebg_03,R.drawable.framebg_04,R.drawable.framebg_05,R.drawable.framebg_06,R.drawable.framebg_07,R.drawable.framebg_08,R.drawable.framebg_09,R.drawable.framebg_10,R.drawable.framebg_11,R.drawable.framebg_12,R.drawable.framebg_13,R.drawable.framebg_14,R.drawable.framebg_15,R.drawable.framebg_16,R.drawable.framebg_17,R.drawable.framebg_18,R.drawable.framebg_19,R.drawable.framebg_20,R.drawable.framebg_21,R.drawable.framebg_22,R.drawable.framebg_23,R.drawable.framebg_24,R.drawable.framebg_25,R.drawable.framebg_26,R.drawable.framebg_27,R.drawable.framebg_28,R.drawable.framebg_29,R.drawable.framebg_30,R.drawable.framebg_31,R.drawable.framebg_32,R.drawable.framebg_33,R.drawable.framebg_34,R.drawable.framebg_35,R.drawable.framebg_36,R.drawable.framebg_37,R.drawable.framebg_38,R.drawable.framebg_39,R.drawable.framebg_40,R.drawable.framebg_41,R.drawable.framebg_42,R.drawable.framebg_43,R.drawable.framebg_44,R.drawable.framebg_45,R.drawable.framebg_46,R.drawable.framebg_47,R.drawable.framebg_48,R.drawable.framebg_49,R.drawable.framebg_50,R.drawable.framebg_51,R.drawable.framebg_52,R.drawable.framebg_53,R.drawable.framebg_54,R.drawable.framebg_55,R.drawable.framebg_56,R.drawable.framebg_57,R.drawable.framebg_58,R.drawable.framebg_59,R.drawable.framebg_60,R.drawable.framebg_61,R.drawable.framebg_62,R.drawable.framebg_63,R.drawable.framebg_64,R.drawable.framebg_65,R.drawable.framebg_66,R.drawable.framebg_67,R.drawable.framebg_68,R.drawable.framebg_69,R.drawable.framebg_70};
     private RunnableSprites myRunBG;
+    private apiManager aM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +88,9 @@ public class MenuActivity extends GameMenu {
         imagelogo = findViewById(R.id.imageLogo);
         profilebut = findViewById(R.id.buttonprofile);
         librarybut = findViewById(R.id.buttonLibrary);
+        refresh = findViewById(R.id.refreshimg);
 
+        refresh.setVisibility(View.INVISIBLE);
 
         ObjectAnimator animatorY_1 = ObjectAnimator.ofFloat(imagelogo,"y",150f);
         animatorY_1.setDuration(animationduration);
@@ -136,12 +145,7 @@ public class MenuActivity extends GameMenu {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == SHOP_ITEM_REQUEST) {
             if (data.hasExtra("LIST")) {
-                Intent i = getIntent();
-                List<Item> list = new LinkedList<Item>();
-                list = (List<Item>) data.getSerializableExtra("LIST");
-                for (int p = 0; p < list.size(); p++) {
-                    this.user.addItem(list.get(p));
-                }
+                refreshUser();
             }
         }
     }
@@ -265,5 +269,29 @@ public class MenuActivity extends GameMenu {
         mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
         dialog.show();
+    }
+
+    public void refreshUser(){
+        aM = apiManager.getInstance();
+        refresh.setVisibility(View.VISIBLE);
+        Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        refresh.startAnimation(rotateAnimation);
+        aM.getUser(this.user.getName(), new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(response.body() != null){
+                    user = response.body();
+                    money.setText(String.valueOf(user.getMoney()));
+                    refresh.clearAnimation();
+                    refresh.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

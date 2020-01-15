@@ -38,6 +38,6 @@ public interface apiService {
     Call<List<Item>> getAllObjetcs();
 
     @PUT("modifyUser")
-    Call<User> modifyUser(@Body User user);
+    Call<ResponseBody> modifyUser(@Body User user);
 
 }

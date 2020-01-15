@@ -10,15 +10,15 @@
     <ImageView
         android:id="@+id/iconObject"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginRight="20dip"
         android:contentDescription="TODO"
-        android:maxWidth="100dp"
-        android:maxHeight="100dp"
-        android:minWidth="100dp"
-        android:minHeight="100dp"
+        android:maxWidth="75dp"
+        android:maxHeight="75dp"
+        android:minWidth="75dp"
+        android:minHeight="75dp"
         android:scaleType="fitXY"
         android:src="@drawable/idcard" />
 

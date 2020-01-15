@@ -83,13 +83,10 @@ public class SignUpActivity extends GameMenu{
                             .setTitle("Success")
                             .setMessage("Welcome " + responseUser.getName() + "! Your Account has been created!")
                             .setCancelable(false)
-                            .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
+                            .setPositiveButton("OK", (dialog, which) -> startLogIn());
 
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
-
-                    Intent i = new Intent(SignUpActivity.this,GameMenu.class);
-                    startActivity(i);
                 }
 
                 @Override
@@ -120,6 +117,12 @@ public class SignUpActivity extends GameMenu{
     public void closeClick(View view){
         Button close = (Button)view;
         finish();
+    }
+
+    public void startLogIn(){
+
+        Intent i = new Intent(SignUpActivity.this,GameMenu.class);
+        startActivity(i);
     }
 
 }

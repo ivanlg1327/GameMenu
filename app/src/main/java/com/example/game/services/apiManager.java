@@ -4,6 +4,7 @@ import com.example.game.models.*;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -33,8 +34,8 @@ public class apiManager {
         call.enqueue(callback);
     }
 
-    public void buyObject(User user, Callback<User> callback){
-        Call<User> call = apiService.modifyUser(user);
+    public void buyObject(User user, Callback<ResponseBody> callback){
+        Call<ResponseBody> call = apiService.modifyUser(user);
         call.enqueue(callback);
     }
 
@@ -45,6 +46,11 @@ public class apiManager {
 
     public void getAllObjects(Callback<List<Item>> callback){
         Call<List<Item>> call = apiService.getAllObjetcs();
+        call.enqueue(callback);
+    }
+
+    public void getUser(String username, Callback<User> callback){
+        Call<User> call = apiService.getUser(username);
         call.enqueue(callback);
     }
 }

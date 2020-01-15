@@ -27,6 +27,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,6 +92,8 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
                         .setCancelable(false)
                         .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
 
+                android.app.AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
         });
 
@@ -101,7 +104,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
         Item itempop = its.get(position);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ShopActivity.this);
-        View mView = getLayoutInflater().inflate(R.layout.shopitem_popup,null);
+        View mView = getLayoutInflater().inflate(R.layout.shopitem_popup, null);
 
         TextView itemName = (TextView) mView.findViewById(R.id.nameitem);
         TextView itemdescriptor = (TextView) mView.findViewById(R.id.descpitem);
@@ -120,17 +123,17 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
         shy.setText(signo + String.valueOf(itempop.getShield()));
         hp.setText(signo + String.valueOf(itempop.getHp()));
         spd.setText(signo + String.valueOf(itempop.getSpd()));
-        if(itempop.getShield() < 0 || itempop.getAtk() < 0 || itempop.getSpd() < 0 || itempop.getHp() < 0){
-            if(itempop.getHp() < 0) {
+        if (itempop.getShield() < 0 || itempop.getAtk() < 0 || itempop.getSpd() < 0 || itempop.getHp() < 0) {
+            if (itempop.getHp() < 0) {
                 hp.setText(String.valueOf(itempop.getHp()));
             }
-            if(itempop.getSpd() < 0) {
+            if (itempop.getSpd() < 0) {
                 spd.setText(String.valueOf(itempop.getSpd()));
             }
-            if(itempop.getAtk() < 0) {
+            if (itempop.getAtk() < 0) {
                 atk.setText(String.valueOf(itempop.getAtk()));
             }
-            if(itempop.getShield() < 0) {
+            if (itempop.getShield() < 0) {
                 shy.setText(String.valueOf(itempop.getShield()));
             }
 
@@ -138,7 +141,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
         Picasso.get().load(itempop.getUrl()).into(itemimg);
 
-        if(userShop.getMoney() < 100){
+        if (userShop.getMoney() < 100) {
             buybut.setVisibility(View.INVISIBLE);
         }
 
@@ -148,40 +151,51 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
         buybut.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
 
                 userShop.addItem(itempop);
                 userShop.buy(100);
                 aM = apiManager.getInstance();
-                aM.buyObject(userShop, new Callback<User>() {
+                aM.buyObject(userShop, new Callback<ResponseBody>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        if (response.isSuccessful() == true){
-                            buybut.setBackground(getDrawable(R.drawable.check));
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response != null) {
+
+                            its.remove(itempop);
+                            myAdapter.setItems(its);
+                            recyclerView.setAdapter(myAdapter);
+
+                            android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(ShopActivity.this);
+                            alertDialogBuilder
+                                    .setTitle("Success")
+                                    .setMessage("You bought: " + itempop.getName())
+                                    .setCancelable(true)
+                                    .setPositiveButton("OK", (dialog, which) ->  closeContextMenu());
+
+                            android.app.AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
+                            buybut.setVisibility(View.INVISIBLE);
+
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
                         android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(ShopActivity.this);
-
                         alertDialogBuilder
                                 .setTitle("Error")
                                 .setMessage("Unable to perform request")
-                                .setCancelable(false)
-                                .setPositiveButton("OK", (dialog, which) -> closeContextMenu());
+                                .setCancelable(true)
+                                .setPositiveButton("OK", (dialog, which) ->  finish());
 
                         android.app.AlertDialog alertDialog = alertDialogBuilder.create();
                         alertDialog.show();
                     }
                 });
-
-                dialog.cancel();
-                itsbuyed.add(itempop);
             }
         });
     }
+
 
     public void closeClick(View view){
         Button close = (Button)view;

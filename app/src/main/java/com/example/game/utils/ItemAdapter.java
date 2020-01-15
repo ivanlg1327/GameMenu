@@ -59,6 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
    }
 
    public void setItems(List<Item> itemsx){
+        this.items.clear();
         this.items.addAll(itemsx);
         notifyDataSetChanged();
    }

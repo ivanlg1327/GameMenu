@@ -49,9 +49,9 @@ public class LibraryActivity extends AppCompatDialogFragment {
         spd = view.findViewById(R.id.speedenemybox);
 
         enemies = new LinkedList<EnemyClass>();
-        EnemyClass alien_1 = new EnemyClass("Alien",100,100,100);
-        EnemyClass alien_2 = new EnemyClass("Purple Alien",120,100,150);
-        EnemyClass turret = new EnemyClass("Turret",100,100,100);
+        EnemyClass alien_1 = new EnemyClass("Alien",25,100,100);
+        EnemyClass alien_2 = new EnemyClass("Purple Alien",40,100,150);
+        EnemyClass turret = new EnemyClass("Turret",50,200,0);
         enemies.add(alien_1); enemies.add(alien_2);enemies.add(turret);
 
         spriteList = new LinkedList<Integer[]>();
@@ -71,9 +71,9 @@ public class LibraryActivity extends AppCompatDialogFragment {
                 myRunnable.setSprites(spriteList.get(counter));
                 name.setText(enemies.get(counter).getName());
                 description.setText(getString(enemydescriptions[counter]));
-                hp.setText(enemies.get(counter).getHealth());
-                dmg.setText(enemies.get(counter).getDmg());
-                spd.setText(enemies.get(counter).getSpeed());
+                hp.setText(String.valueOf(enemies.get(counter).getHealth()));
+                dmg.setText(String.valueOf(enemies.get(counter).getDmg()));
+                spd.setText(String.valueOf(enemies.get(counter).getSpeed()));
                 if(counter + 1 == spriteList.size()) {
                     next.setVisibility(View.INVISIBLE);
                     back.setVisibility(View.VISIBLE);
@@ -92,9 +92,9 @@ public class LibraryActivity extends AppCompatDialogFragment {
                 myRunnable.setSprites(spriteList.get(counter));
                 name.setText(enemies.get(counter).getName());
                 description.setText(getString(enemydescriptions[counter]));
-                hp.setText(enemies.get(counter).getHealth());
-                dmg.setText(enemies.get(counter).getDmg());
-                spd.setText(enemies.get(counter).getSpeed());
+                hp.setText(String.valueOf(enemies.get(counter).getHealth()));
+                dmg.setText(String.valueOf(enemies.get(counter).getDmg()));
+                spd.setText(String.valueOf(enemies.get(counter).getSpeed()));
                 if (counter == 0){
                     back.setVisibility(View.INVISIBLE);
                     next.setVisibility(View.VISIBLE);
@@ -112,6 +112,11 @@ public class LibraryActivity extends AppCompatDialogFragment {
         myRunnable.run();
         back.setVisibility(View.INVISIBLE);
         next.setVisibility(View.VISIBLE);
+        name.setText(enemies.get(counter).getName());
+        description.setText(getString(enemydescriptions[counter]));
+        hp.setText(String.valueOf(enemies.get(counter).getHealth()));
+        dmg.setText(String.valueOf(enemies.get(counter).getDmg()));
+        spd.setText(String.valueOf(enemies.get(counter).getSpeed()));
 
 
         DisplayMetrics dm = new DisplayMetrics();

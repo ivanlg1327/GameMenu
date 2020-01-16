@@ -2,7 +2,6 @@ package com.example.game.activities;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.game.R;
-import com.example.game.utils.EnemyClass;
+import com.example.game.models.EnemyClass;
 import com.example.game.utils.RunnableSprites;
 
 import java.util.LinkedList;

@@ -1,6 +1,5 @@
 package com.example.game.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,25 +7,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.game.R;
 import com.example.game.models.Item;
 import com.example.game.models.User;
-import com.example.game.services.apiManager;
 import com.example.game.utils.ItemAdapter;
-import com.example.game.utils.RunnableSprites;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-
-import java.io.Serializable;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemListener{
 
@@ -89,7 +78,7 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
 
         Item itempop = user.getItems().get(position);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ProfileActivity.this);
-        View mView = getLayoutInflater().inflate(R.layout.shopitem_popup, null);
+        View mView = getLayoutInflater().inflate(R.layout.item_popup, null);
 
         TextView itemName = (TextView) mView.findViewById(R.id.nameitem);
         TextView itemdescriptor = (TextView) mView.findViewById(R.id.descpitem);

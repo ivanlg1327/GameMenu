@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.game.R;
-import com.squareup.picasso.Picasso;
 
 public class PopItemActivity extends ShopActivity {
 
@@ -22,7 +21,7 @@ public class PopItemActivity extends ShopActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shopitem_popup);
+        setContentView(R.layout.item_popup);
 
         this.imgitem = (ImageView) findViewById(R.id.imgitem);
         this.nameitembox = (TextView) findViewById(R.id.nameitem);

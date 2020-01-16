@@ -3,11 +3,15 @@ package com.example.game.activities;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.game.R;
 import com.example.game.models.User;
@@ -24,6 +28,7 @@ public class SignUpActivity extends GameMenu{
     EditText username;
     EditText password;
     EditText email;
+    ImageView logo;
     EditText paswordconf;
     Button register;
     private User newUser;
@@ -35,6 +40,12 @@ public class SignUpActivity extends GameMenu{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_layout);
+
+        logo = findViewById(R.id.logoviewsignup);
+        moveAnimation = AnimationUtils.loadAnimation(this,R.anim.widemove);
+        moveAnimation.setRepeatCount(Animation.INFINITE);
+        moveAnimation.setRepeatMode(Animation.REVERSE);
+        logo.startAnimation(moveAnimation);
 
         username = findViewById(R.id.usernamebox);
         password = findViewById(R.id.passbox);

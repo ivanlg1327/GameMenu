@@ -1,4 +1,4 @@
-package com.example.game.utils;
+package com.example.game.models;
 
 public class EnemyClass {
     int dmg;

@@ -2,15 +2,11 @@ package com.example.game.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,6 +35,8 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
     private RecyclerView.LayoutManager layoutManager;
     private apiManager aM;
     private User userShop;
+    private TextView itemsnum;
+    private TextView money;
 
 
     List<Item> its;
@@ -56,8 +54,13 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
         recyclerView.setLayoutManager(layoutManager);
         itsbuyed = new LinkedList<Item>();
 
+        itemsnum = findViewById(R.id.objetsshoptext);
+        money = findViewById(R.id.moneyshoptext);
+
         Gson gson = new Gson();
         this.userShop = gson.fromJson(getIntent().getStringExtra("myjson"), User.class);
+        itemsnum.setText(String.valueOf(userShop.getItems().size()));
+        money.setText(String.valueOf(userShop.getMoney()));
 
         aM = apiManager.getInstance();
         aM.getAllObjects(new Callback<List<Item>>() {
@@ -104,7 +107,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
 
         Item itempop = its.get(position);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ShopActivity.this);
-        View mView = getLayoutInflater().inflate(R.layout.shopitem_popup, null);
+        View mView = getLayoutInflater().inflate(R.layout.item_popup, null);
 
         TextView itemName = (TextView) mView.findViewById(R.id.nameitem);
         TextView itemdescriptor = (TextView) mView.findViewById(R.id.descpitem);
@@ -164,6 +167,8 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
                             its.remove(itempop);
                             myAdapter.setItems(its);
                             recyclerView.setAdapter(myAdapter);
+                            itemsnum.setText(String.valueOf(userShop.getItems().size()));
+                            money.setText(String.valueOf(userShop.getMoney()));
 
                             android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(ShopActivity.this);
                             alertDialogBuilder

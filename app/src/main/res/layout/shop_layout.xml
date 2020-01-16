@@ -37,4 +37,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclershop"
+        app:layout_constraintEnd_toStartOf="@+id/closebut"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/imagebutton_border"
+        android:padding="10dp"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:textColor="@color/myWhite"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text="Coins: " />
+
+            <TextView
+                android:id="@+id/moneyshoptext"
+                android:layout_width="wrap_content"
+                android:textColor="@color/myWhite"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="8dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text="100" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/myWhite"
+                android:text="Objects: " />
+
+            <TextView
+                android:id="@+id/objetsshoptext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/myWhite"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="8dp"
+                android:text="3" />
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

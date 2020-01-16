@@ -9,9 +9,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.SharedPreferences;
+import android.widget.ImageView;
 
 import com.example.game.R;
 import com.example.game.models.User;
@@ -26,11 +29,13 @@ public class GameMenu extends AppCompatActivity {
 
     private EditText textusername;
     private EditText textpassword;
+    private ImageView logo;
     ProgressDialog progressDialog;
     private apiManager uM;
     public SharedPreferences sp;
     public SharedPreferences.Editor editor;
     AlertDialog.Builder alertDialogBuilder;
+    Animation moveAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,11 @@ public class GameMenu extends AppCompatActivity {
         sp = getApplicationContext().getSharedPreferences("login",0);
         editor = sp.edit();
 
+        logo = findViewById(R.id.logoviewlogin);
+        moveAnimation = AnimationUtils.loadAnimation(this,R.anim.widemove);
+        moveAnimation.setRepeatCount(Animation.INFINITE);
+        moveAnimation.setRepeatMode(Animation.REVERSE);
+        logo.startAnimation(moveAnimation);
 
         this.textusername = findViewById(R.id.usernamebox);
         this.textpassword = findViewById(R.id.passwordbox);

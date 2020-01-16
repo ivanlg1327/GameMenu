@@ -24,7 +24,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView txtHeader;
-        public TextView txtFooter;
         public ImageView img;
         public View layout;
         OnItemListener onItemListener;
@@ -33,7 +32,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            txtFooter = (TextView) v.findViewById(R.id.secondLine);
             img = (ImageView) v.findViewById(R.id.iconObject);
             this.onItemListener = onItemListener;
             itemView.setOnClickListener(this);
@@ -77,7 +75,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         Item it = items.get(position);
         holder.txtHeader.setText(it.getName());
-        holder.txtFooter.setText(it.getDescription());
         try{
 
             Picasso.get().load(it.getUrl()).into(holder.img);

@@ -73,13 +73,13 @@ public class User {
 
     public void generateBasicObjects(){
 
-        Item jet = new Item("Jetpack 1","Your first Jetpack, may seem basic but gets the job done!");
+        Item jet = new Item("Jetpack v1","Your first Jetpack, may seem basic but gets the job done!");
         jet.setAtk(0); jet.setHp(50); jet.setSpd(100); jet.setShi(50);
         jet.setUrl("http://147.83.7.206:8080/static/images/items/jetpacklvl1.png");
-        Item suit = new Item("Suit 1","Your first suit, the one your mother gave you a long time ago!");
+        Item suit = new Item("Suit v1","Your first suit, the one your mother gave you a long time ago!");
         suit.setAtk(0); suit.setHp(50); suit.setSpd(0); suit.setShi(50);
         suit.setUrl("http://147.83.7.206:8080/static/images/items/suitlvl1.png");
-        Item gun = new Item("Pistol 1","Your first pistol, be careful with it!");
+        Item gun = new Item("Pistol v1","Your first pistol, be careful with it!");
         gun.setAtk(100); gun.setHp(0); gun.setSpd(0); gun.setShi(0);
         gun.setUrl("http://147.83.7.206:8080/static/images/items/pistollvl1.png");
 

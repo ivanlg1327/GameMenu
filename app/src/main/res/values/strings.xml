@@ -3,4 +3,7 @@
     <string name="play">Play</string>
     <string name="shop">Shop</string>
     <string name="game_view_content_description">Game view</string>
+    <string name="description_alien_1">This basic enemy is found on every corner of the ship, they seem to just run at you like you like they want a hug or something, meh just shoot them.</string>
+    <string name="description_alien_2">This one looks like he wants to hug you even more, then just shoot them a little bit more! :D</string>
+    <string name="description_turret">The habitants of the ship build turrets inside the ship for aparently no reason, seems like they get shot from this than i do! POGGERS</string>
 </resources>

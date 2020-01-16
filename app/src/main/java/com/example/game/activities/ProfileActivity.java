@@ -7,17 +7,26 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.game.R;
+import com.example.game.models.Item;
 import com.example.game.models.User;
+import com.example.game.services.apiManager;
 import com.example.game.utils.ItemAdapter;
 import com.example.game.utils.RunnableSprites;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemListener{
 
@@ -77,6 +86,50 @@ public class ProfileActivity extends MenuActivity implements ItemAdapter.OnItemL
 
     @Override
     public void onItemClick(int position) {
+
+        Item itempop = user.getItems().get(position);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(ProfileActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.shopitem_popup, null);
+
+        TextView itemName = (TextView) mView.findViewById(R.id.nameitem);
+        TextView itemdescriptor = (TextView) mView.findViewById(R.id.descpitem);
+        ImageView itemimg = (ImageView) mView.findViewById(R.id.imgitem);
+        TextView atk = (TextView) mView.findViewById(R.id.attackstatbox);
+        TextView shy = (TextView) mView.findViewById(R.id.shieldstatbox);
+        TextView hp = (TextView) mView.findViewById(R.id.hpstatbox);
+        TextView spd = (TextView) mView.findViewById(R.id.speedstatbox);
+        Button buybut = (Button) mView.findViewById(R.id.buybutton);
+        buybut.setVisibility(View.INVISIBLE);
+
+        itemName.setText(itempop.getName());
+        itemdescriptor.setText(itempop.getDescription());
+
+        String signo = "+";
+        atk.setText(signo + String.valueOf(itempop.getAtk()));
+        shy.setText(signo + String.valueOf(itempop.getShield()));
+        hp.setText(signo + String.valueOf(itempop.getHp()));
+        spd.setText(signo + String.valueOf(itempop.getSpd()));
+        if (itempop.getShield() < 0 || itempop.getAtk() < 0 || itempop.getSpd() < 0 || itempop.getHp() < 0) {
+            if (itempop.getHp() < 0) {
+                hp.setText(String.valueOf(itempop.getHp()));
+            }
+            if (itempop.getSpd() < 0) {
+                spd.setText(String.valueOf(itempop.getSpd()));
+            }
+            if (itempop.getAtk() < 0) {
+                atk.setText(String.valueOf(itempop.getAtk()));
+            }
+            if (itempop.getShield() < 0) {
+                shy.setText(String.valueOf(itempop.getShield()));
+            }
+
+        }
+        Picasso.get().load(itempop.getUrl()).into(itemimg);
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+
 
     }
 

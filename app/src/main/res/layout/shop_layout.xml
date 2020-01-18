@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/imagebutton_border"
-        android:padding="10dp"
+        android:padding="18dp"
         app:layout_constraintVertical_bias="0.0">
 
         <TableRow

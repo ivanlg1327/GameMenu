@@ -117,15 +117,6 @@ public class LibraryActivity extends AppCompatDialogFragment {
         dmg.setText(String.valueOf(enemies.get(counter).getDmg()));
         spd.setText(String.valueOf(enemies.get(counter).getSpeed()));
 
-
-        DisplayMetrics dm = new DisplayMetrics();
-        //getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        //getWindow().setLayout((int)(width*.7),(int)(height*.6));
-
         return builder.create();
     }
 }

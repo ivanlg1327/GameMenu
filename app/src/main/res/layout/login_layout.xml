@@ -76,6 +76,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint=" Password"
+        android:imeOptions="flagNoExtractUi"
         android:inputType="textPassword"
         android:background="@drawable/edittext_background"
         app:layout_constraintBottom_toTopOf="@+id/guideH2"
@@ -87,6 +88,7 @@
     <EditText
         android:id="@+id/usernamebox"
         android:layout_width="300dp"
+        android:imeOptions="flagNoExtractUi"
         android:layout_height="wrap_content"
         android:hint=" Username"
         android:background="@drawable/edittext_background"

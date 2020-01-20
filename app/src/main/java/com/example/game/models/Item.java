@@ -28,6 +28,9 @@ public class Item implements Serializable {
     @SerializedName("url")
     @Expose
     private String url;
+    @SerializedName("precio")
+    @Expose
+    public int price;
 
 
 
@@ -91,5 +94,13 @@ public class Item implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

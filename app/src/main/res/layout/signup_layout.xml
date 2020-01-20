@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_background"
         android:hint=" Username"
+        android:imeOptions="flagNoExtractUi"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
         app:layout_constraintStart_toStartOf="@+id/guideV1"
         app:layout_constraintTop_toTopOf="@+id/guideH1" />
@@ -30,18 +31,18 @@
         android:id="@+id/mailbox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:imeOptions="flagNoExtractUi"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittext_background"
         android:hint=" Email"
         app:layout_constraintEnd_toStartOf="@+id/guideV2"
-
-
         app:layout_constraintStart_toStartOf="@+id/guideV1"
         app:layout_constraintTop_toBottomOf="@+id/usernamebox" />
 
     <EditText
         android:id="@+id/passbox"
         android:layout_width="0dp"
+        android:imeOptions="flagNoExtractUi"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittext_background"
@@ -56,6 +57,7 @@
         android:id="@+id/confirmpass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:imeOptions="flagNoExtractUi"
         android:layout_marginTop="24dp"
         android:background="@drawable/edittext_background"
         android:inputType="textPassword"

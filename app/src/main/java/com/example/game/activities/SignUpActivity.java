@@ -70,6 +70,7 @@ public class SignUpActivity extends GameMenu{
         if(password.getText().toString().equals(paswordconf.getText().toString()) == true){
             this.newUser = new User(username.getText().toString(),email.getText().toString(),password.getText().toString());
             this.newUser.generateBasicObjects();
+            this.newUser.setMoney(1000);
 
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Loading user...");

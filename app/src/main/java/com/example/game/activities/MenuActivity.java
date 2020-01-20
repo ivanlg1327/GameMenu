@@ -114,8 +114,11 @@ public class MenuActivity extends GameMenu {
         playBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Gson gson = new Gson();
+                String myJson = gson.toJson(user);
 
                 Intent i = new Intent(MenuActivity.this, UnityBridgeActivity.class);
+                i.putExtra("myjson", myJson);
                 startActivity(i);
             }
         });

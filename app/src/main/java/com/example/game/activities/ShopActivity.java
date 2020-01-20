@@ -117,6 +117,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
         TextView hp = (TextView) mView.findViewById(R.id.hpstatbox);
         TextView spd = (TextView) mView.findViewById(R.id.speedstatbox);
         Button buybut = (Button) mView.findViewById(R.id.buybutton);
+        buybut.setText("Buy for " + String.valueOf(itempop.getPrice()));
 
         itemName.setText(itempop.getName());
         itemdescriptor.setText(itempop.getDescription());
@@ -157,7 +158,7 @@ public class ShopActivity extends AppCompatActivity implements ItemAdapter.OnIte
             public void onClick(View view) {
 
                 userShop.addItem(itempop);
-                userShop.buy(100);
+                userShop.buy(itempop.getPrice());
                 aM = apiManager.getInstance();
                 aM.buyObject(userShop, new Callback<ResponseBody>() {
                     @Override
